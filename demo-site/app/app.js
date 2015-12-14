@@ -1,7 +1,7 @@
 (function(){
     'use strict';
 
-    angular.module('main', ['ngRoute', 'ngTable', 'ngSocial', 'embedCodepen', 'ngSanitize'])
+    angular.module('main', ['ngRoute', 'ngTable', 'ngSocial', 'embedCodepen', 'ngSanitize', 'group'])
         .config(['$routeProvider',
             function ($routeProvider) {
                 $routeProvider.
@@ -15,14 +15,13 @@
                         controller: function () {
 
                         }
-                    }).
+                     }).
                     when('/:section/:article', {
                         templateUrl: function ($routeParams) {
                             return 'views/' + $routeParams.section + '/' + $routeParams.article + '.html';
-                        },
-                        controller: function () {
-
                         }
+                        // controller: 'demoController',
+                        // controllerAs: 'demo'
                     });
             }])
         .controller('introController', function(NgTableParams){
@@ -141,6 +140,9 @@
                 items: [{
                     title: 'Basic example',
                     url: '#/grouping/demo-grouping-basic'
+                }, {
+                    title: 'Basic example local',
+                    url: '#/grouping/demo-grouping-basic-local'
                 }, {
                     title: 'Custom grouping function',
                     url: '#/grouping/demo-grouping-fn'
